@@ -13,7 +13,6 @@ body {
 
 main {
     padding: 8rem;
-    position: relative;
 }
 
 h1 {
@@ -22,60 +21,34 @@ h1 {
 
 h3 {
     font-size: 3rem;
-    display: inline;
+    margin: 0 0.75rem 0 0;
+}
+
+.row {
+    display: flex;
+    align-items: center;
 }
 
 .slide-wrapper {
     overflow: hidden;
 }
 
-.slide-content {
-    /* needed? */
-    transform-style: preserve-3d;
-}
-
 .skill {
-    display: inline-block;
     opacity: 0;
     font-size: 3rem;
     position: absolute;
     top: 0;
-    width: 100%;
-    margin: auto;
-    z-index: 100;
-    transition-property: opacity, transform, z-index;
-    transition-duration: 3s;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(150px);
 }
 
 .skill.active {
     opacity: 1;
-    position: relative;
-    z-index: 900;
+    position: static;
+    transform: translateX(0);
 }
 
-.skill.previous, .skill.next {
-    z-index: 800;
-}
-
-.skill.prev {
-    transform: translateX(-50%); /* Move 'prev' item to the left */
-}
-
-.skill.next {
-    transform: translateX(50%); /* Move 'next' item to the right */
-}
-
-/* 
-.skill.hidden {
+.skill.leaving {
+    transform: translateX(-200px);
     opacity: 0;
 }
-
-.skill.hidden.out {
-    transition: 300ms cubic-bezier(0.4, 0, 1, 1);
-    transform: translateX(-50px);
-}
-
-.skill.in {
-    transition: 300ms cubic-bezier(0, 0, 0.2, 1) 300ms;
-    transform: translateX(-152px);
-} */
